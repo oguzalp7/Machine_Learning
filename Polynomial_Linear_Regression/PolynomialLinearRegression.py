@@ -20,6 +20,12 @@ class PolynomialLinearRegression(LinearRegression_):
         self.linear_regression = LinearRegression_(self.df).linear_regression
 
     def fit_line(self, x_col, y_col):
+        """
+        Override Parent Method
+        :param x_col:
+        :param y_col:
+        :return:
+        """
         x = self.df[x_col]
         y = self.df[y_col]
         if len(x.shape) == 1:
@@ -43,17 +49,18 @@ class PolynomialLinearRegression(LinearRegression_):
 
     def single_prediction(self, x_col, y_col, idx):
         """
-        Single point prediction
+        Override Parent Method
         :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis.
         :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
         :param idx: integer; the specified index for prediction.  Encourage to set higher than total number of samples.
         """
-        y_head, x_, y_ = self.fit_line(x_col, y_col)
+        _, _, _ = self.fit_line(x_col, y_col)
         index = np.array([[idx]])
         return self.linear_regression.predict(self.polynomial_linear_regression.fit_transform(index))
 
     def multiple_predictions(self, x_col, y_col, idx_array):
         """
+        Override Parent Method
         :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis.
         :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
         :param idx_array: list; containing the index numbers of the desired predictions.
