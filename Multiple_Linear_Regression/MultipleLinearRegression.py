@@ -28,8 +28,8 @@ class MultipleLinearRegression(LinearRegression_):
         # x = self.df.iloc[:, [0, 2]].values
         # print(x == x_)
         self.linear_regression.fit(x_, y_)
-        print("b0: ", self.linear_regression.intercept_)
-        print("b1 to bn: ", self.linear_regression.coef_)
+        # print("b0: ", self.linear_regression.intercept_)
+        # print("b1 to bn: ", self.linear_regression.coef_)
         # return self.linear_regression.intercept_, self.linear_regression.coef_
 
     def single_prediction(self, y_col, **kwargs):
