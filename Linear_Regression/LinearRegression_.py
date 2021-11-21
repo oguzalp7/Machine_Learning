@@ -1,4 +1,3 @@
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
@@ -7,6 +6,12 @@ from sklearn.linear_model import LinearRegression
 class LinearRegression_:
     """
     Simple Linear Regression
+    y = b0 + b1 * x
+    where:
+        - y => dependent variable
+        - b0 => intercept (constant or bias)
+        - b1 => coefficient (slope of the fitted line)
+        - x => independent variable
     """
 
     def __init__(self, data_frame):
@@ -46,7 +51,7 @@ class LinearRegression_:
         Single point prediction
         :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis. 
         :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
-        :param idx: integer; the specified index for prediction. It can be higher than the maximum number of current x-axis.
+        :param idx: integer; the specified index for prediction. Encourage to set higher than total number of samples.
         """
         self.fit_line(x_col, y_col)
         return self.linear_regression.predict(np.array([[idx]]))

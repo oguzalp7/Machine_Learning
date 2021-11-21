@@ -1,8 +1,4 @@
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from LinearRegression_ import LinearRegression_
 from MultipleLinearRegression import MultipleLinearRegression
 
 

@@ -5,12 +5,18 @@ import numpy as np
 class MultipleLinearRegression(LinearRegression_):
     """
     Multiple Linear Regression Class, inherits LinearRegression_ class.
+    y = b0 + b1 * x1 + b2 * x2 + ... + bn * xn
+    where:
+        - b0 => intercept (bias or constant)
+        - b1 to bn => coefficients per sample
+        - y => dependent variable
+        - x1 to xn => independent variables
     """
     def fit_line(self, y_col, *argv):
         """
         Override self.fit_line(x_col, y_col); since we will have more than 1 x_col values.
         :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
-        :param argv: set of strings; which are indicates the attributes of the data frame, that user wish to place it into x-axis.
+        :param argv: set of strings; which are indicates the attributes of the data frame
         :return:
         """
         y = self.df[y_col]
@@ -35,7 +41,7 @@ class MultipleLinearRegression(LinearRegression_):
     def single_prediction(self, y_col, **kwargs):
         """
         Override self.single_prediction method!
-        :param y_col: y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
+        :param y_col: y_col: string; which indicates the dependent variable name in the data frame.
         :param kwargs: check for the main.py for the usage.
         :return:
         """
@@ -50,7 +56,7 @@ class MultipleLinearRegression(LinearRegression_):
     def multiple_predictions(self, y_col, **kwargs):
         """
         Override self.multiple_predictions method!
-        :param y_col: y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
+        :param y_col: y_col: string; which indicates the dependent variable name in the data frame.
         :param kwargs: check for the main.py for the usage.
         :return:
         """
