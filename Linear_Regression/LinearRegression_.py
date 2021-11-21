@@ -8,6 +8,7 @@ class LinearRegression_:
     """
     Simple Linear Regression
     """
+
     def __init__(self, data_frame):
         self.df = data_frame
         self.linear_regression = LinearRegression()
@@ -40,15 +41,38 @@ class LinearRegression_:
         # b1 = self.linear_regression.coef_
         # print(self.linear_regression.predict(np.array([[11]])))
 
-    def predict(self, x_col, y_col, idx):
+    def single_prediction(self, x_col, y_col, idx):
         """
-        x_col and y_col are strings which are related to the attributes of the data frame.
-        idx parameter is an integer for the index of the x-axis.
+        Single point prediction
+        :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis. 
+        :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
+        :param idx: integer; the specified index for prediction. It can be higher than the maximum number of current x-axis.
         """
         self.fit_line(x_col, y_col)
-        print(self.linear_regression.predict(np.array([[idx]])))
+        return self.linear_regression.predict(np.array([[idx]]))
+
+    def multiple_predictions(self, x_col, y_col, idx_array):
+        """
+        :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis.
+        :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
+        :param idx_array: list; containing the index numbers of the desired predictions.
+        :return: nump array; containing the predictions based on the indexes of the list called "idx_array"
+        """
+        self.fit_line(x_col, y_col)
+        try:
+            idx_array = np.array(idx_array).reshape(-1, 1)
+        except Exception as e:
+            print("The array is already in a good shape. Additional information: ", e)
+        return self.linear_regression.predict(idx_array)
 
     def visualize_results(self, x_col, y_col, num_of_samples, color="red"):
+        """
+        :param x_col: string; which indicates the attribute of the data frame, that user wish to place it into x-axis. 
+        :param y_col: string; which indicates the attribute of the data frame, that user wish to place it into y-axis.
+        :param num_of_samples: integer; indicates the number of desired predictions.
+        :param color: string, indicates the color of the fitted line.
+        :return: 
+        """
         self.fit_line(x_col, y_col)
         temp_ = []
         for i in range(num_of_samples):
