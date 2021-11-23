@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import r2_score
 
 
 class DecisionTreeRegression:
@@ -23,7 +24,8 @@ class DecisionTreeRegression:
         self.fit_model(x_col, y_col)
         return self.tree_regressor.predict(args)
 
-    def scale_data(self, x_col, scale_rate=0.01):
+    @staticmethod
+    def scale_data(x_col, scale_rate=0.01):
         return np.arange(min(x_col), max(x_col), scale_rate).reshape(-1, 1)
 
     def visualize_results(self, x_col, y_col, x_label=None, y_label=None, color="green"):
@@ -34,3 +36,7 @@ class DecisionTreeRegression:
         plt.xlabel(x_label)
         plt.ylabel(y_label)
         plt.show()
+
+    @staticmethod
+    def evaluate_model(y_truth, y_head):
+        return r2_score(y_truth, y_head)

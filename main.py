@@ -15,7 +15,7 @@ def main():
     lr.visualize_results("experience", "salary", 50)
     print(mlr.multiple_predictions("salary", experience=[5, 10, 15], age=[25, 35, 38]))
     print(plr.single_prediction("price", "max_speed", 220))
-    
+
 
 if __name__ == '__main__':
     main()

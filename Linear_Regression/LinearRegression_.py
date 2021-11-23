@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-
+from sklearn.metrics import r2_score
 
 class LinearRegression_:
     """
@@ -87,3 +87,7 @@ class LinearRegression_:
         self.visualize_data(x_col=x_col, y_col=y_col, show=False)
         plt.plot(array, y_head, color=color)
         plt.show()
+
+    @staticmethod
+    def evaluate_model(y_truth, y_head):
+        return r2_score(y_truth, y_head)

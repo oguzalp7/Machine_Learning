@@ -10,7 +10,7 @@ def main():
     # dtr.visualize_data(x, y)
     # print(dtr.predict(x, y, 5.5))
     dtr.visualize_results(x, y, x_label="Ticket Level", y_label="Ticket Fee")
-
+    print("Evaluation: ", dtr.evaluate_model(x, y))
 
 if __name__ == '__main__':
     main()

@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from DecisionTreeRegression import DecisionTreeRegression
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import r2_score
 
 
 class RandomForestRegression(DecisionTreeRegression):
@@ -19,7 +20,7 @@ class RandomForestRegression(DecisionTreeRegression):
         args = np.array(args).reshape(-1, 1)
         self.fit_model(x_col, y_col)
         return self.random_forest_regression.predict(args)
-    
+
 
 def main():
     df = pd.read_csv("random_forest_regression_dataset.csv", sep=";", header=None)
