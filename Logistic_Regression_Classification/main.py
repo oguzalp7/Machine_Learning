@@ -12,6 +12,7 @@ import pickle
 def json_to_dict(input_file):
     file = open(input_file, 'r')
     data = json.load(file)
+    file.close()
     return data
 
 
@@ -26,6 +27,7 @@ def pickle_to_dict(pickled_msg):
 def dict_to_json(dictionary, outfile_name='parameters.json'):
     outfile = open(outfile_name, 'w')
     json.dump(dictionary, outfile)
+    outfile.close()
 
 
 class LogisticRegressionClassificationFromScratch:
