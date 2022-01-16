@@ -101,7 +101,7 @@ class LogisticRegressionClassificationFromScratch:
     @staticmethod
     def train_test_split_(x, y, **kwargs):
         # test_size => proportion of the data separation
-        # random_state => id of a random state. Just like the random seed or magic number for expert advisers.
+        # random_state => id of a random state. Just like the random seed or magic number for expert advisors.
         return train_test_split(x, y, **kwargs)  # returns x_train, x_test, y_train, y_test
 
     @staticmethod
